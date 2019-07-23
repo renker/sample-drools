@@ -1,0 +1,19 @@
+package rules.sample9
+import com.renker.drools.sample9.model.Student
+import com.renker.drools.sample9.model.Teacher
+
+rule "rule_1"
+	when
+		Teacher( $age : age )
+		Student( age == $age )
+	then
+		System.out.println("学生老师年龄相同1");
+end
+
+rule "rule_2"
+	when
+		
+		Student( age == Teacher.getAge() )
+	then
+		System.out.println("学生老师年龄相同2");
+end

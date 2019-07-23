@@ -1,0 +1,17 @@
+template header
+age
+className
+
+package rules.sample8.template
+import com.renker.drools.model.Student
+global java.util.List list;
+
+template "template_test_0101010"
+rule "template_rule_@{row.rowNumber}"
+	when
+		Student(age > @{age})
+	then
+		list.add(@{className});
+end
+
+end template

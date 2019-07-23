@@ -1,0 +1,9 @@
+package rules.sample8.dsl
+import com.renker.drools.model.Student
+rule "new rule"
+	when
+		学生
+		- 姓名 等于 "张三"
+	then
+		输出
+end

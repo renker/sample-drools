@@ -1,0 +1,8 @@
+package rules.sample8.process
+rule "rule-flow-script"
+	ruleflow-group "roleFlow_group"
+	when
+		eval(true)
+	then
+		System.out.println("规则执行...");
+end

@@ -1,0 +1,14 @@
+package rules.sample1
+import com.renker.drools.model.Person
+
+function log(String ruleName,String msg){
+	System.out.println("执行规则["+ruleName+"] \t 信息："+msg);
+}
+
+rule "helloword-1"
+	when
+		person:Person( age > 18 )
+	then
+		person.setMoney(new java.math.BigDecimal(100000));
+		log(drools.getRule().getName(),"用户年龄超过18岁，补贴金额为："+person.getMoney());
+end

@@ -1,0 +1,20 @@
+package rules.example.flow
+
+/**
+ * 长城爱永随终身寿险/00005 交费期限 1 第一年
+ */
+
+rule "flow_insurance_00002_00005_paymentPeriod_1_time_1"
+	ruleflow-group "insurancFlow_00002_00005_group"
+	when
+		insurance : LongTermInsuranceMainFlow( code == "00005" &&  paymentPeriod == 1 && time == 1)
+	then
+		// 基本费率
+		insurance.setBaseFeeRate(new java.math.BigDecimal("0.04"));
+		// 计算基本手续费 
+		insurance.setBaseFee(insurance.getMoney().multiply(insurance.getBaseFeeRate()));
+end
+
+
+
+

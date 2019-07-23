@@ -1,0 +1,12 @@
+package rules.sample8.dslsample
+import com.renker.drools.model.Student
+
+rule "new rule"
+	when
+		学生的姓名 等于 "张三"
+		并且 (学生的年龄 小于 18 
+		或者 学生的年龄 大于 20)
+	then
+		学生的成绩 赋值 100
+		"你已经进入中年"
+end

@@ -1,0 +1,32 @@
+package rules.sample6
+
+function log(String ruleName,String msg){
+	System.out.println("执行规则["+ruleName+"] \t 信息："+msg);
+}
+
+declare Person
+	name : String
+	age : Integer
+	money : java.math.BigDecimal
+end
+
+declare Student extends Person
+	level : Integer
+end
+
+rule "factObj-rule"
+	when
+		person : Person(age > 18)
+	then
+		person.setMoney(new java.math.BigDecimal(100000));
+		log(drools.getRule().getName(),"用户年龄超过18岁，补贴金额为："+person.getMoney());
+end
+
+rule "factObj-rule-extends"
+	when
+		student : Student(age < 18)
+	then
+		student.setLevel(1);
+		log(drools.getRule().getName(),"用户年龄小于18岁，级别为："+student.getLevel());
+end
+	

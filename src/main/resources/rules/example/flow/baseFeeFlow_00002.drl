@@ -1,0 +1,10 @@
+package rules.example.flow
+
+rule "flow_baseMoney_00002"
+	ruleflow-group "flow_baseMoney_00002_group"
+	when
+		insurance : LongTermInsuranceMainFlow()
+	then
+		insurance.setBaseMoneyRate(new java.math.BigDecimal("0.1"));
+		insurance.setBaseMoney(insurance.getBaseFee().multiply(insurance.getBaseMoneyRate()));
+end

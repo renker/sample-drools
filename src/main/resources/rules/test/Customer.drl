@@ -1,0 +1,16 @@
+package com.fairyland.rules.ruleae5a3c9cc9524c55ad3cac6262d4b0e0
+declare Customer1
+    name:java.lang.String
+    age:java.lang.Integer
+    email:java.lang.String
+end
+rule "rule"
+    when
+        $Customer1:Customer1()
+        eval( ( $Customer1.getName() == "zhangsan") )
+    then
+        System.out.println("张三");
+        $Customer1.setEmail("caishenchen@163.com");
+        $Customer1.setAge(100+$Customer1.getAge()*2);
+
+end

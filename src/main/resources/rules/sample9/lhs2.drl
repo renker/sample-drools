@@ -1,0 +1,37 @@
+package com.test.rules
+
+import com.renker.drools.sample9.model.Student
+import com.renker.drools.sample9.model.Teacher
+
+rule "rule_sample_1"
+    when
+		//( $student:Student( age == 6 ) )
+		$student:Student()
+		eval($student.getAge() == 6 )
+    then
+    	System.out.println("111111111111111__"+$student.getScore()+"_"+$student.getAge());
+    	modify($student){
+    		setScore(12)
+    	}
+    	System.out.println("222222222222222__"+$student.getScore()+"_"+$student.getAge());
+    	
+end
+
+rule "rule_sample_2"
+    when
+    	$teacher:Teacher()
+    	$student:Student()
+		eval( ($student.getAge() == $teacher.getAge()) && ($student.getAge() == 10) && ($teacher.getAge() == 10) )
+		//eval( ($student.getAge() < 20) && ($student.getAge() == 10) )
+		//eval(true && $student.getAge() == 10)
+	
+    then
+    	System.out.println("111111111111111__"+$student.getScore()+"_"+$student.getAge());
+    	//modify($student){
+    	//	setScore( 100000 )
+    	//}
+    	$student.setScore( 100 );
+    	//update($student)
+    	System.out.println("222222222222222__"+$student.getScore()+"_"+$student.getAge());
+end
+

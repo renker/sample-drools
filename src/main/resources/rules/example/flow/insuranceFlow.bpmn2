@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="insuranceFlow" name="insuranceFlow" tns:packageName="rues.example.flow" >
+
+    <extensionElements>
+     <tns:import name="rules.example.flow.LongTermInsuranceMainFlow" />
+     <tns:import name="org.kie.api.runtime.process.CaseAssignment" />
+     <tns:import name="org.kie.api.runtime.process.CaseData" />
+    </extensionElements>
+    <!-- nodes -->
+    <startEvent id="a69758c82-0512-4712-bd86-8d3380b0b910" name="Start"  isInterrupting="false">
+    </startEvent>
+    <businessRuleTask id="005adfbd-141b-478d-bca4-d1dd8881a0ea" name="a00005" g:ruleFlowGroup="insurancFlow_00001_00005_group" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <exclusiveGateway id="145eabe6-b279-4a6c-8159-2658c5e63954" name="xieyitiaojian" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <businessRuleTask id="90528e2d-bef8-4189-bf53-56bcd5c8efa5" name="a00005" g:ruleFlowGroup="insurancFlow_00002_00005_group" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <endEvent id="fbcf4fcf-f48a-4c5f-93a6-2cc5058e55e7" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <exclusiveGateway id="8bbe0cbe-5558-491a-9962-efe668ff23a1" name="qufenxianzhong" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <businessRuleTask id="0bcc32e3-e6a6-4301-8431-0b21dc68a646" name="a00320" g:ruleFlowGroup="insurancFlow_00001_00320_group" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <businessRuleTask id="390f3d4b-c363-4ecf-9b84-af0030ed7298" name="ajishuanbaofei1" g:ruleFlowGroup="flow_baseMoney_00001_group" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <endEvent id="57f1cebb-8a46-419e-a0d3-6938e3ad0c57" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <exclusiveGateway id="540be262-4eba-42de-b8c9-9fb2a40d0b5e" name="ajuhe" gatewayDirection="Converging" >
+    </exclusiveGateway>
+    <exclusiveGateway id="76ee5f8f-888a-4e09-aa2a-af561e6910f1" name="qufenxianzhaong1" gatewayDirection="Diverging" >
+    </exclusiveGateway>
+    <businessRuleTask id="d79e206e-c9ff-4dc2-bc09-e109b152e946" name="a00320" g:ruleFlowGroup="insurancFlow_00002_00320_group" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <exclusiveGateway id="a450dc40-ecec-49e6-a42c-8bd13003834d" name="ajuhe" gatewayDirection="Converging" >
+    </exclusiveGateway>
+    <businessRuleTask id="b4243c81-4f26-4f73-baf2-663cdf164756" name="ajishuanbaofei2" g:ruleFlowGroup="flow_baseMoney_00002_group" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+
+    <!-- connections -->
+    <sequenceFlow id="8bbe0cbe-5558-491a-9962-efe668ff23a1-005adfbd-141b-478d-bca4-d1dd8881a0ea" sourceRef="8bbe0cbe-5558-491a-9962-efe668ff23a1" targetRef="005adfbd-141b-478d-bca4-d1dd8881a0ea" name="00005" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >LongTermInsuranceMainFlow(code == "00005")</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="a69758c82-0512-4712-bd86-8d3380b0b910-145eabe6-b279-4a6c-8159-2658c5e63954" sourceRef="a69758c82-0512-4712-bd86-8d3380b0b910" targetRef="145eabe6-b279-4a6c-8159-2658c5e63954" />
+    <sequenceFlow id="76ee5f8f-888a-4e09-aa2a-af561e6910f1-90528e2d-bef8-4189-bf53-56bcd5c8efa5" sourceRef="76ee5f8f-888a-4e09-aa2a-af561e6910f1" targetRef="90528e2d-bef8-4189-bf53-56bcd5c8efa5" name="00005" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >LongTermInsuranceMainFlow(code == "00005")</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="b4243c81-4f26-4f73-baf2-663cdf164756-fbcf4fcf-f48a-4c5f-93a6-2cc5058e55e7" sourceRef="b4243c81-4f26-4f73-baf2-663cdf164756" targetRef="fbcf4fcf-f48a-4c5f-93a6-2cc5058e55e7" />
+    <sequenceFlow id="145eabe6-b279-4a6c-8159-2658c5e63954-8bbe0cbe-5558-491a-9962-efe668ff23a1" sourceRef="145eabe6-b279-4a6c-8159-2658c5e63954" targetRef="8bbe0cbe-5558-491a-9962-efe668ff23a1" name="henan" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >LongTermInsuranceMainFlow(protocolNo =="00001")</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="8bbe0cbe-5558-491a-9962-efe668ff23a1-0bcc32e3-e6a6-4301-8431-0b21dc68a646" sourceRef="8bbe0cbe-5558-491a-9962-efe668ff23a1" targetRef="0bcc32e3-e6a6-4301-8431-0b21dc68a646" name="00320" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >LongTermInsuranceMainFlow(code == "00320")</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="540be262-4eba-42de-b8c9-9fb2a40d0b5e-390f3d4b-c363-4ecf-9b84-af0030ed7298" sourceRef="540be262-4eba-42de-b8c9-9fb2a40d0b5e" targetRef="390f3d4b-c363-4ecf-9b84-af0030ed7298" />
+    <sequenceFlow id="390f3d4b-c363-4ecf-9b84-af0030ed7298-57f1cebb-8a46-419e-a0d3-6938e3ad0c57" sourceRef="390f3d4b-c363-4ecf-9b84-af0030ed7298" targetRef="57f1cebb-8a46-419e-a0d3-6938e3ad0c57" />
+    <sequenceFlow id="005adfbd-141b-478d-bca4-d1dd8881a0ea-540be262-4eba-42de-b8c9-9fb2a40d0b5e" sourceRef="005adfbd-141b-478d-bca4-d1dd8881a0ea" targetRef="540be262-4eba-42de-b8c9-9fb2a40d0b5e" />
+    <sequenceFlow id="0bcc32e3-e6a6-4301-8431-0b21dc68a646-540be262-4eba-42de-b8c9-9fb2a40d0b5e" sourceRef="0bcc32e3-e6a6-4301-8431-0b21dc68a646" targetRef="540be262-4eba-42de-b8c9-9fb2a40d0b5e" />
+    <sequenceFlow id="145eabe6-b279-4a6c-8159-2658c5e63954-76ee5f8f-888a-4e09-aa2a-af561e6910f1" sourceRef="145eabe6-b279-4a6c-8159-2658c5e63954" targetRef="76ee5f8f-888a-4e09-aa2a-af561e6910f1" name="hebei" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >LongTermInsuranceMainFlow(protocolNo =="00002")</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="76ee5f8f-888a-4e09-aa2a-af561e6910f1-d79e206e-c9ff-4dc2-bc09-e109b152e946" sourceRef="76ee5f8f-888a-4e09-aa2a-af561e6910f1" targetRef="d79e206e-c9ff-4dc2-bc09-e109b152e946" name="00320" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >LongTermInsuranceMainFlow(code == "00320")</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="90528e2d-bef8-4189-bf53-56bcd5c8efa5-a450dc40-ecec-49e6-a42c-8bd13003834d" sourceRef="90528e2d-bef8-4189-bf53-56bcd5c8efa5" targetRef="a450dc40-ecec-49e6-a42c-8bd13003834d" />
+    <sequenceFlow id="d79e206e-c9ff-4dc2-bc09-e109b152e946-a450dc40-ecec-49e6-a42c-8bd13003834d" sourceRef="d79e206e-c9ff-4dc2-bc09-e109b152e946" targetRef="a450dc40-ecec-49e6-a42c-8bd13003834d" />
+    <sequenceFlow id="a450dc40-ecec-49e6-a42c-8bd13003834d-b4243c81-4f26-4f73-baf2-663cdf164756" sourceRef="a450dc40-ecec-49e6-a42c-8bd13003834d" targetRef="b4243c81-4f26-4f73-baf2-663cdf164756" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="insuranceFlow" >
+      <bpmndi:BPMNShape bpmnElement="a69758c82-0512-4712-bd86-8d3380b0b910" >
+        <dc:Bounds x="15" y="165" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="005adfbd-141b-478d-bca4-d1dd8881a0ea" >
+        <dc:Bounds x="338" y="2" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="145eabe6-b279-4a6c-8159-2658c5e63954" >
+        <dc:Bounds x="113" y="162" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="90528e2d-bef8-4189-bf53-56bcd5c8efa5" >
+        <dc:Bounds x="340" y="218" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="fbcf4fcf-f48a-4c5f-93a6-2cc5058e55e7" >
+        <dc:Bounds x="751" y="262" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="8bbe0cbe-5558-491a-9962-efe668ff23a1" >
+        <dc:Bounds x="197" y="56" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="0bcc32e3-e6a6-4301-8431-0b21dc68a646" >
+        <dc:Bounds x="342" y="112" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="390f3d4b-c363-4ecf-9b84-af0030ed7298" >
+        <dc:Bounds x="608" y="63" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="57f1cebb-8a46-419e-a0d3-6938e3ad0c57" >
+        <dc:Bounds x="756" y="61" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="540be262-4eba-42de-b8c9-9fb2a40d0b5e" >
+        <dc:Bounds x="492" y="62" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="76ee5f8f-888a-4e09-aa2a-af561e6910f1" >
+        <dc:Bounds x="210" y="268" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="d79e206e-c9ff-4dc2-bc09-e109b152e946" >
+        <dc:Bounds x="345" y="320" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="a450dc40-ecec-49e6-a42c-8bd13003834d" >
+        <dc:Bounds x="501" y="263" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="b4243c81-4f26-4f73-baf2-663cdf164756" >
+        <dc:Bounds x="612" y="264" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="8bbe0cbe-5558-491a-9962-efe668ff23a1-005adfbd-141b-478d-bca4-d1dd8881a0ea" >
+        <di:waypoint x="221" y="80" />
+        <di:waypoint x="378" y="26" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="a69758c82-0512-4712-bd86-8d3380b0b910-145eabe6-b279-4a6c-8159-2658c5e63954" >
+        <di:waypoint x="39" y="189" />
+        <di:waypoint x="137" y="186" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="76ee5f8f-888a-4e09-aa2a-af561e6910f1-90528e2d-bef8-4189-bf53-56bcd5c8efa5" >
+        <di:waypoint x="234" y="292" />
+        <di:waypoint x="380" y="242" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="b4243c81-4f26-4f73-baf2-663cdf164756-fbcf4fcf-f48a-4c5f-93a6-2cc5058e55e7" >
+        <di:waypoint x="652" y="288" />
+        <di:waypoint x="775" y="286" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="145eabe6-b279-4a6c-8159-2658c5e63954-8bbe0cbe-5558-491a-9962-efe668ff23a1" >
+        <di:waypoint x="137" y="186" />
+        <di:waypoint x="221" y="80" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="8bbe0cbe-5558-491a-9962-efe668ff23a1-0bcc32e3-e6a6-4301-8431-0b21dc68a646" >
+        <di:waypoint x="221" y="80" />
+        <di:waypoint x="382" y="136" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="540be262-4eba-42de-b8c9-9fb2a40d0b5e-390f3d4b-c363-4ecf-9b84-af0030ed7298" >
+        <di:waypoint x="516" y="86" />
+        <di:waypoint x="648" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="390f3d4b-c363-4ecf-9b84-af0030ed7298-57f1cebb-8a46-419e-a0d3-6938e3ad0c57" >
+        <di:waypoint x="648" y="87" />
+        <di:waypoint x="780" y="85" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="005adfbd-141b-478d-bca4-d1dd8881a0ea-540be262-4eba-42de-b8c9-9fb2a40d0b5e" >
+        <di:waypoint x="378" y="26" />
+        <di:waypoint x="516" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="0bcc32e3-e6a6-4301-8431-0b21dc68a646-540be262-4eba-42de-b8c9-9fb2a40d0b5e" >
+        <di:waypoint x="382" y="136" />
+        <di:waypoint x="516" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="145eabe6-b279-4a6c-8159-2658c5e63954-76ee5f8f-888a-4e09-aa2a-af561e6910f1" >
+        <di:waypoint x="137" y="186" />
+        <di:waypoint x="234" y="292" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="76ee5f8f-888a-4e09-aa2a-af561e6910f1-d79e206e-c9ff-4dc2-bc09-e109b152e946" >
+        <di:waypoint x="234" y="292" />
+        <di:waypoint x="385" y="344" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="90528e2d-bef8-4189-bf53-56bcd5c8efa5-a450dc40-ecec-49e6-a42c-8bd13003834d" >
+        <di:waypoint x="380" y="242" />
+        <di:waypoint x="525" y="287" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="d79e206e-c9ff-4dc2-bc09-e109b152e946-a450dc40-ecec-49e6-a42c-8bd13003834d" >
+        <di:waypoint x="385" y="344" />
+        <di:waypoint x="525" y="287" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="a450dc40-ecec-49e6-a42c-8bd13003834d-b4243c81-4f26-4f73-baf2-663cdf164756" >
+        <di:waypoint x="525" y="287" />
+        <di:waypoint x="652" y="288" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

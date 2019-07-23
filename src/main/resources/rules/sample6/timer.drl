@@ -1,0 +1,14 @@
+package rules.sample6
+declare TimerCondition
+	name : String
+	age : Integer
+	money : java.math.BigDecimal
+end
+
+rule "timer-common"
+	timer(int: 1s 5s)
+	when
+		con : TimerCondition(age > 0)
+	then
+		log(drools.getRule().getName(),"定时任务执行 ... ");
+end

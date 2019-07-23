@@ -1,0 +1,108 @@
+package rules.example
+
+declare LongTermInsuranceMain 
+	/**
+	 * 险种代码
+	 */
+	code : String
+	/**
+	 * 缴费期限
+	 */
+	paymentPeriod : Integer
+	/**
+	 * 交费次数 （首年 二年 三年 四年 五年）
+	 */
+	time : Integer
+	/**
+	 * 续期保费
+	 */
+	money : java.math.BigDecimal
+	/**
+	 * 基本手续费率
+	 */
+	baseFeeRate : java.math.BigDecimal
+	/**
+	 * 基本手续费
+	 */
+	baseFee : java.math.BigDecimal
+end 
+
+/**
+ * 长城爱永随终身寿险/00005 交费期限 1 第一年
+ */
+
+rule "insurance_code_00005_paymentPeriod_1_time_1"
+	when
+		insurance : LongTermInsuranceMain( code == "00005" &&  paymentPeriod == 1 && time == 1)
+	then
+		// 基本费率
+		insurance.setBaseFeeRate(new java.math.BigDecimal("0.04"));
+		// 计算基本手续费 
+		insurance.setBaseFee(insurance.getMoney().multiply(insurance.getBaseFeeRate()));
+end
+
+/**
+ * 长城爱永随终身寿险/00005 交费期限 3 第1年
+ */
+rule "insurance_code_00005_paymentPeriod_3_time_1"
+	when
+		insurance : LongTermInsuranceMain( code == "00005" &&  paymentPeriod == 3 && time == 1)
+	then
+		// 基本费率
+		insurance.setBaseFeeRate(new java.math.BigDecimal("0.12"));
+		// 计算基本手续费 
+		insurance.setBaseFee(insurance.getMoney().multiply(insurance.getBaseFeeRate()));
+end
+
+/**
+ * 长城爱永随终身寿险/00005 交费期限 3 第2年
+ */
+rule "insurance_code_00005_paymentPeriod_3_time_2"
+	when
+		insurance : LongTermInsuranceMain( code == "00005" &&  paymentPeriod == 3 && time == 2)
+	then
+		// 基本费率
+		insurance.setBaseFeeRate(new java.math.BigDecimal("0.02"));
+		// 计算基本手续费 
+		insurance.setBaseFee(insurance.getMoney().multiply(insurance.getBaseFeeRate()));
+end
+
+/**
+ * 长城爱永随终身寿险/00005 交费期限 5 第1年
+ */
+rule "insurance_code_00005_paymentPeriod_5_time_1"
+	when
+		insurance : LongTermInsuranceMain( code == "00005" &&  paymentPeriod == 5 && time == 1)
+	then
+		// 基本费率
+		insurance.setBaseFeeRate(new java.math.BigDecimal("0.22"));
+		// 计算基本手续费 
+		insurance.setBaseFee(insurance.getMoney().multiply(insurance.getBaseFeeRate()));
+end
+
+/**
+ * 长城爱永随终身寿险/00005 交费期限 5 第2年
+ */
+rule "insurance_code_00005_paymentPeriod_5_time_2"
+	when
+		insurance : LongTermInsuranceMain( code == "00005" &&  paymentPeriod == 5 && time == 2)
+	then
+		// 基本费率
+		insurance.setBaseFeeRate(new java.math.BigDecimal("0.05"));
+		// 计算基本手续费 
+		insurance.setBaseFee(insurance.getMoney().multiply(insurance.getBaseFeeRate()));
+end
+
+/**
+ * 长城爱永随终身寿险/00005 交费期限 5 第3年
+ */
+rule "insurance_code_00005_paymentPeriod_5_time_3"
+	when
+		insurance : LongTermInsuranceMain( code == "00005" &&  paymentPeriod == 5 && time == 3)
+	then
+		// 基本费率
+		insurance.setBaseFeeRate(new java.math.BigDecimal("0.03"));
+		// 计算基本手续费 
+		insurance.setBaseFee(insurance.getMoney().multiply(insurance.getBaseFeeRate()));
+end
+
